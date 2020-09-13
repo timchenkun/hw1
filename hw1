@@ -1,0 +1,165 @@
+import random
+
+x = random.randint(1,18)
+y = random.randint(1,6)
+
+dict_emoji = {1: '🐶',
+             2:'🐱',
+             3:'🦐',
+             4:'🐹',
+             5:'🦑',
+             6:'🐻',
+             7:'🦕',
+             8:'🐼',
+             9:'🦄',
+             10:'🐯',
+             11:'🦁',
+             12:'🐷',
+             13:'🦟',
+             14:'🐸',
+             15:'🐵',
+             16:'🦊',
+             17:'🐙',
+             18:'🦠'}
+dict_name = {1: 'Пёс',
+             2:'Кот',
+             3:'Кревет',
+             4:'Хомяк',
+             5:'Кальмар',
+             6:'Медведь',
+             7:'Зауропод',
+             8:'Панда',
+             9:'Единорог',
+             10:'Тигр',
+             11:'Лев',
+             12:'Комар',
+             13:'Свин',
+             14:'Жаб',
+             15:'Обезьян',
+             16:'Лис',
+             17:'Осьминог',
+             18:'Вирус'}
+dict_job = {1:'экономист',
+            2:'аналитик',
+            3:'финансист',
+            4:'Data сайентист',
+            5:'Data инженер',
+            6:'ML инженер',
+            7:'BI-специалист'}
+
+def step1():
+    print(
+        'После тяжелого дня',dict_name[x], dict_job[y], dict_emoji[x],'решил зайти выпить в бар. '
+        'Взять ему',dict_emoji[x],'зонтик ☂️?'
+    )
+    option = ''
+    options = {'да': True, 'нет': False}
+    while option not in options:
+        print('Выберите: {}/{}'.format(*options))
+        option = input()
+    
+    if options[option]:
+        return step2_umbrella()
+    return step2_no_umbrella()
+
+
+def step2_umbrella():
+    weather = random.randint(0,1)
+    if weather == 0:
+        print()
+        print(dict_emoji[x],'☂️')
+        print()
+        print('Дождя нет, вы зря взяли зонт ☂️.')
+    else:
+        print()
+        print(dict_emoji[x],'☔')
+        print()
+        print(
+            'Пошел дождь 🌧, вы не зря взяли зонт ☔.'
+        )
+    print()
+    print(
+        dict_name[x], dict_job[y], dict_emoji[x],' пришел в бар.',
+        'Взять ему выпить 🍺?'
+    )
+    option = ''
+    options = {'да': True, 'нет': False}
+    while option not in options:
+        print('Выберите: {}/{}'.format(*options))
+        option = input()
+    
+    if options[option]:
+        return step3_drink()
+    return step3_no_drink()
+
+def step3_drink():
+    print(' ')
+    print(dict_name[x], dict_job[y], dict_emoji[x],' все выпил  🍻.')
+    print(' ')
+    print('Взять ли ему',dict_emoji[x],'еще выпить 🍺 или пойти домой спать 🏠?')
+    option = ''
+    options = {'взять выпить': True, 'пойти домой': False}
+    while option not in options:
+        print('Выберите: {}/{}'.format(*options))
+        option = input()
+    
+    if options[option]:
+        return step3_drink()
+    print()
+    print('На следующий день',dict_name[x], dict_job[y], dict_emoji[x],
+          ' ужасно поработал (прошлый вечер дал о себе знать).')
+    print()
+    return step1()
+
+def step3_no_drink():
+    print(' ')
+    print(dict_name[x], dict_job[y], dict_emoji[x],' ничего не выпил.')
+    print(' ')
+    print('Может взять ему',dict_emoji[x],'выпить 🍺 или просто сидеть?')
+    option = ''
+    options = {'взять выпить': True, 'просто сидеть': False}
+    while option not in options:
+        print('Выберите: {}/{}'.format(*options))
+        option = input()
+    
+    if options[option]:
+        return step3_drink()
+    return step3_no_drink()
+
+def step2_no_umbrella():
+    weather = random.randint(0,1)
+    if weather == 0:
+        print()
+        print(dict_emoji[x])
+        print()
+        print('Дождя нет, вы не зря не взяли зонт ☂️.')
+        print()
+        print(
+            dict_name[x], dict_job[y], dict_emoji[x],' пришел в бар.',
+            'Взять ему выпить 🍺?'
+        )
+        option = ''
+        options = {'да': True, 'нет': False}
+        while option not in options:
+            print('Выберите: {}/{}'.format(*options))
+            option = input()
+
+        if options[option]:
+            return step3_drink()
+        return step3_no_drink()
+    else:
+        print()
+        print(dict_emoji[x],'🌧')
+        print()
+        print(
+            'Пошел дождь 🌧, вы зря не взяли зонт ☔.'
+            'Придется возвращаться домой 🏠 и идти в бар на следующий день.'
+        )
+        print()
+        print('На следующий день', dict_name[x], dict_job[y], dict_emoji[x],'отлично поработал.')
+        print()
+        return step1()
+        
+
+if __name__ == '__main__':
+    step1()
