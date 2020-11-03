@@ -41,7 +41,7 @@ print('Задача 2')
 
 
 def tf_transform(matrix: np) -> np:
-    return count_matrix / np.sum(matrix > 0, axis=1).reshape(2, 1)
+    return count_matrix / np.sum(matrix, axis=1).reshape(2, 1)
 
 
 tf_matrix = tf_transform(count_matrix)
