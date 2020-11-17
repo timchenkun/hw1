@@ -48,6 +48,14 @@ lesson_str = """{
         }
 }"""
 
+lesson_str = """{
+    "title": "С++",
+    "location": {
+        "address": "город Челябинск, Ленина, 10",
+        "metro_stations": ["-"]
+        }
+}"""
+
 lesson_ad = Advert(lesson_str)
 print(lesson_ad)
 print(lesson_ad.title)
