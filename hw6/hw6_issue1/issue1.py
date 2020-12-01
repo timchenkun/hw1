@@ -35,6 +35,9 @@ def encode(message: str) -> str:
         '... --- ... ... ... --- ...'
         >>> encode(message='S O S') # doctest: +NORMALIZE_WHITESPACE
         '...  ---  ...'
+        >>> encode(message=1)
+        Traceback (most recent call last):
+        TypeError: 'int' object is not iterable
     """
 
     encoded_signs = [
