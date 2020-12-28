@@ -21,8 +21,8 @@ def test_name():
     hawaiian_1 = Hawaiian()
     pepperoni_1 = Pepperoni()
     assert margherita_1.name == 'Margherita 🧀'
-    assert hawaiian_1.name == 'Margherita 🍍'
-    assert pepperoni_1.name == 'Margherita 🍕'
+    assert hawaiian_1.name == 'Hawaiian 🍍'
+    assert pepperoni_1.name == 'Pepperoni 🍕'
 
 def test_size():
     margherita_1 = Margherita()
