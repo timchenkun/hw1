@@ -36,7 +36,7 @@ class Hawaiian(Pizza):
 
     def __init__(self, size='L'):
         super().__init__(size)
-        self.name = 'Margherita 🍍'
+        self.name = 'Hawaiian 🍍'
         self.ingredients = {**self.ingredients,
                             'chicken': '10 pieces',
                             'pineapples': '10 pieces'}
@@ -46,7 +46,7 @@ class Pepperoni(Pizza):
 
     def __init__(self, size='L'):
         super().__init__(size)
-        self.name = 'Margherita 🍕'
+        self.name = 'Pepperoni 🍕'
         self.ingredients = {**self.ingredients,
                             'pepperoni': '10 pieces'}
 
